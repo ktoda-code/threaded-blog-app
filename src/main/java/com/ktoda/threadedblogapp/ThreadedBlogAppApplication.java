@@ -8,6 +8,13 @@ public class ThreadedBlogAppApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ThreadedBlogAppApplication.class, args);
+        System.out.println("""
+                =================================
+                =================================
+                Threaded Blog Application started
+                =================================
+                =================================
+                """);
     }
 
 }
