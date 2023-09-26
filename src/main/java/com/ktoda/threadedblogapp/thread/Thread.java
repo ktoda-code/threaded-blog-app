@@ -47,6 +47,8 @@ public class Thread {
     private User creator;
     @OneToMany(mappedBy = "thread")
     private List<Comment> comments = new ArrayList<>();
+    @Transient
+    private double engagementFactor = 2.5d;
 
     public Thread(String title, String description, ThreadType type, ThreadTopic topic, Date createdOn, Space space) {
         this.title = title;
@@ -58,7 +60,7 @@ public class Thread {
     }
 
     public Double getThreadEngagement() { // Simulated formula for thread engagement
-        return (space.getUserCount() + space.getThreadsCount()) / 2.5;
+        return (space.getUserCount() + space.getThreadsCount()) / engagementFactor;
     }
 
     public void addComment(Comment comment) {
