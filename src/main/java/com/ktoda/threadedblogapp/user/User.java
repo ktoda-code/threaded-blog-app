@@ -1,6 +1,7 @@
 package com.ktoda.threadedblogapp.user;
 
 import com.ktoda.threadedblogapp.authority.Authority;
+import com.ktoda.threadedblogapp.comment.Comment;
 import com.ktoda.threadedblogapp.invite.Invite;
 import com.ktoda.threadedblogapp.modrequest.ModRequest;
 import com.ktoda.threadedblogapp.space.Space;
@@ -64,7 +65,8 @@ public class User {
     private List<ModRequest> requests = new ArrayList<>();
     @OneToMany(mappedBy = "creator")
     private List<Thread> threads = new ArrayList<>();
-
+    @OneToMany(mappedBy = "threader")
+    private List<Comment> comments = new ArrayList<>();
 
     public User(String username, String email, String password) {
         this.username = username;
@@ -114,5 +116,13 @@ public class User {
 
     public void removeSpace(Space space) {
         spaces.remove(space);
+    }
+
+    public void addComment(Comment comment) {
+        comments.add(comment);
+    }
+
+    public void removeComment(Comment comment) {
+        comments.remove(comment);
     }
 }
