@@ -1,6 +1,7 @@
 package com.ktoda.threadedblogapp.comment;
 
 import com.ktoda.threadedblogapp.thread.Thread;
+import com.ktoda.threadedblogapp.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -29,9 +30,12 @@ public class Comment implements Serializable {
     private Timestamp editedOn;
     @ManyToOne
     private Thread thread;
+    @ManyToOne
+    private User threader;
 
-    public Comment(String content, Thread thread) {
+    public Comment(String content, Thread thread, User threader) {
         this.content = content;
         this.thread = thread;
+        this.threader = threader;
     }
 }
