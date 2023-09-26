@@ -1,4 +1,4 @@
-package com.ktoda.threadedblogapp.model;
+package com.ktoda.threadedblogapp.authority;
 
 public enum AuthorityRole {
     THREADER, MODERATOR, ADMINISTRATOR

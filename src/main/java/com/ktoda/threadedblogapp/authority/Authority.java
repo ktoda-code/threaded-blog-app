@@ -1,10 +1,12 @@
-package com.ktoda.threadedblogapp.model;
+package com.ktoda.threadedblogapp.authority;
 
 
+import com.ktoda.threadedblogapp.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -28,5 +30,14 @@ public class Authority {
 
     public Authority(AuthorityRole authorityRole) {
         this.authorityRole = authorityRole;
+        this.users = new ArrayList<>();
+    }
+
+    public void addUser(User user) {
+        users.add(user);
+    }
+
+    public void removeUser(User user) {
+        users.remove(user);
     }
 }
